@@ -70,11 +70,11 @@ leakage_result = system.detect_leakage(
 
 |攻击方式|攻击后的图片|提取的水印|
 |--|--|--|
-|上下反转|![旋转攻击](output\attacked_geometric_flipping.png)|'学号202200460086'|
-|旋转攻击45度|![旋转攻击](output\attacked_geometric_rotation.png)|'学号202200460086'|
-|随机截图|![截屏攻击](output\attacked_geometric_cropping.png)|'学号202200460086'|
-|遮挡| ![遮挡攻击](output\attacked_geometric_scaling.png) |'学号202200460086'|
-|裁剪攻击|![纵向裁剪攻击](output\attacked_geometric_cropping.png)|'学号202200460086！'|
-|缩放攻击|![缩放攻击](output\attacked_geometric_translation.png)|'学号202200460086'|
-|椒盐攻击|![椒盐攻击](output\attacked_signal_processing_histogram_equalization.png)|'学号202200460086'|
-|对比度攻击|![亮度(对比度)攻击](output\attacked_signal_processing_noise.png)|'学号202200460086'|
+|上下反转|![旋转攻击](output/attacked_geometric_flipping.png)|'学号202200460086'|
+|旋转攻击45度|![旋转攻击](output/attacked_geometric_rotation.png)|'学号202200460086'|
+|随机截图|![截屏攻击](output/attacked_geometric_cropping.png)|'学号202200460086'|
+|遮挡| ![遮挡攻击](output/attacked_geometric_scaling.png) |'学号202200460086'|
+|裁剪攻击|![纵向裁剪攻击](output/attacked_geometric_cropping.png)|'学号202200460086'|
+|缩放攻击|![缩放攻击](output/attacked_geometric_translation.png)|'学号202200460086'|
+|对比度攻击|![对比度攻击](output/attacked_signal_processing_histogram_equalization.png)|'学号202200460086'|
+|对比度攻击|![亮度(对比度)攻击](output/attacked_signal_processing_noise.png)|'学号202200460086'|
