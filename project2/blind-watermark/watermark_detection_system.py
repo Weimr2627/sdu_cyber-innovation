@@ -1,21 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-基于数字水印的图片泄露检测系统
-作业要求：编程实现图片水印嵌入和提取，并进行鲁棒性测试
-
-作者：[您的姓名]
-学号：[您的学号]
-课程：[课程名称]
-日期：[日期]
-
-功能说明：
-1. 水印嵌入：将文本或图片水印嵌入到原始图像中
-2. 水印提取：从嵌入水印的图像中提取水印信息
-3. 鲁棒性测试：测试水印对抗各种攻击的能力
-4. 泄露检测：通过水印验证图像是否被篡改或泄露
-"""
-
 import os
 import cv2
 import numpy as np
@@ -106,7 +89,7 @@ class WatermarkDetectionSystem:
             
             self.processing_history.append(result)
             
-            print(f"✅ 水印嵌入成功！")
+            print(f"   水印嵌入成功！")
             print(f"   原始图像: {original_image_path}")
             print(f"   水印内容: {watermark_info}")
             print(f"   输出图像: {output_path}")
@@ -122,7 +105,7 @@ class WatermarkDetectionSystem:
                 'error_message': str(e)
             }
             self.processing_history.append(error_result)
-            print(f"❌ 水印嵌入失败: {str(e)}")
+            print(f" 水印嵌入失败: {str(e)}")
             return error_result
     
     def extract_watermark(self, 
@@ -176,7 +159,7 @@ class WatermarkDetectionSystem:
             
             self.processing_history.append(result)
             
-            print(f"✅ 水印提取成功！")
+            print(f"   水印提取成功！")
             print(f"   嵌入图像: {embedded_image_path}")
             print(f"   水印形状: {watermark_shape}")
             print(f"   提取结果: {watermark_info}")
@@ -191,7 +174,7 @@ class WatermarkDetectionSystem:
                 'error_message': str(e)
             }
             self.processing_history.append(error_result)
-            print(f"❌ 水印提取失败: {str(e)}")
+            print(f"水印提取失败: {str(e)}")
             return error_result
     
     def test_robustness(self, 
@@ -250,12 +233,12 @@ class WatermarkDetectionSystem:
                 }
                 
                 if extraction_result['status'] == 'success':
-                    print(f"✅ {test_case} 攻击后水印提取成功")
+                    print(f" {test_case} 攻击后水印提取成功")
                 else:
-                    print(f"❌ {test_case} 攻击后水印提取失败")
+                    print(f" {test_case} 攻击后水印提取失败")
                     
             except Exception as e:
-                print(f"❌ {test_case} 测试失败: {str(e)}")
+                print(f" {test_case} 测试失败: {str(e)}")
                 test_results[test_case] = {
                     'status': 'error',
                     'error_message': str(e)
@@ -398,7 +381,7 @@ class WatermarkDetectionSystem:
                         'original_watermark': original_watermark,
                         'suspected_watermark': suspected_watermark
                     }
-                    print("✅ 未检测到泄露")
+                    print("未检测到泄露")
                 else:
                     result = {
                         'leakage_detected': True,
@@ -407,7 +390,7 @@ class WatermarkDetectionSystem:
                         'original_watermark': original_watermark,
                         'suspected_watermark': suspected_watermark
                     }
-                    print("❌ 检测到泄露！")
+                    print("检测到泄露！")
             else:
                 result = {
                     'leakage_detected': 'unknown',
@@ -416,7 +399,7 @@ class WatermarkDetectionSystem:
                     'original_watermark': original_watermark,
                     'suspected_watermark': suspected_watermark
                 }
-                print("⚠️ 无法确定是否泄露")
+                print(" 无法确定是否泄露")
             
             return result
             
@@ -427,7 +410,7 @@ class WatermarkDetectionSystem:
                 'message': f'泄露检测失败: {str(e)}',
                 'error': str(e)
             }
-            print(f"❌ 泄露检测失败: {str(e)}")
+            print(f" 泄露检测失败: {str(e)}")
             return error_result
     
     def _compare_image_watermarks(self, wm1: np.ndarray, wm2: np.ndarray) -> bool:
@@ -500,10 +483,10 @@ class WatermarkDetectionSystem:
             report.append("鲁棒性测试结果:")
             for test_case, result in self.test_results.items():
                 if result.get('status') != 'error':
-                    success = "✅" if result.get('extraction_success') else "❌"
+                    success = "1" if result.get('extraction_success') else "❌"
                     report.append(f"{success} {test_case}: {'成功' if result.get('extraction_success') else '失败'}")
                 else:
-                    report.append(f"⚠️ {test_case}: 测试失败")
+                    report.append(f" {test_case}: 测试失败")
             report.append("")
         
         report.append("=" * 60)
