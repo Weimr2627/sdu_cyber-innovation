@@ -138,10 +138,10 @@ class RobustnessTester:
                     'status': 'completed'
                 }
                 
-                print(f"    ✅ {attack_type} 攻击完成")
+                print(f"    {attack_type} 攻击完成")
                 
             except Exception as e:
-                print(f"    ❌ {attack_type} 攻击失败: {str(e)}")
+                print(f"     {attack_type} 攻击失败: {str(e)}")
                 category_results[attack_type] = {
                     'status': 'error',
                     'error_message': str(e)
@@ -420,12 +420,12 @@ class RobustnessTester:
                 total_attacks += 1
                 if result.get('status') == 'completed':
                     successful_attacks += 1
-                    report.append(f"  ✅ {attack_type}: 攻击完成")
+                    report.append(f"   {attack_type}: 攻击完成")
                     if 'attack_params' in result:
                         params_str = ', '.join([f"{k}={v}" for k, v in result['attack_params'].items()])
                         report.append(f"      参数: {params_str}")
                 else:
-                    report.append(f"  ❌ {attack_type}: {result.get('error_message', '未知错误')}")
+                    report.append(f"   {attack_type}: {result.get('error_message', '未知错误')}")
             report.append("")
         
         # 总结
