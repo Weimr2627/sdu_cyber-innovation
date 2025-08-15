@@ -6,7 +6,7 @@ import numpy as np
 from datetime import datetime
 import json
 
-# 导入重构后的水印检测系统
+# 导入水印检测系统
 from watermark_detection_system import WatermarkDetectionSystem
 from robustness_testing import RobustnessTester
 
@@ -33,7 +33,7 @@ def demo_basic_functionality():
     )
     
     if embed_result['status'] == 'success':
-        print("✅ 文本水印嵌入成功！")
+        print(" 文本水印嵌入成功！")
         
         # 2. 文本水印提取
         print("\n--- 步骤2: 提取文本水印 ---")
@@ -44,12 +44,12 @@ def demo_basic_functionality():
         )
         
         if extract_result['status'] == 'success':
-            print("✅ 文本水印提取成功！")
+            print("文本水印提取成功！")
             print(f"提取的水印内容: {extract_result['extracted_watermark']}")
         else:
-            print("❌ 文本水印提取失败")
+            print("文本水印提取失败")
     else:
-        print("❌ 文本水印嵌入失败")
+        print("文本水印嵌入失败")
         return False
     
     # 3. 图片水印嵌入（如果有水印图片）
@@ -64,7 +64,7 @@ def demo_basic_functionality():
         )
         
         if embed_img_result['status'] == 'success':
-            print("✅ 图片水印嵌入成功！")
+            print("图片水印嵌入成功！")
             
             # 4. 图片水印提取
             print("\n--- 步骤4: 提取图片水印 ---")
@@ -76,11 +76,11 @@ def demo_basic_functionality():
             )
             
             if extract_img_result['status'] == 'success':
-                print("✅ 图片水印提取成功！")
+                print("图片水印提取成功！")
             else:
-                print("❌ 图片水印提取失败")
+                print("图片水印提取失败")
         else:
-            print("❌ 图片水印嵌入失败")
+            print("图片水印嵌入失败")
     
     return True
 
@@ -94,7 +94,7 @@ def demo_robustness_testing():
     # 检查是否有嵌入水印的图像
     embedded_image_path = "output/embedded_text.png"
     if not os.path.exists(embedded_image_path):
-        print("❌ 未找到嵌入水印的图像，请先运行基本功能演示")
+        print("未找到嵌入水印的图像，请先运行基本功能演示")
         return False
     
     # 创建鲁棒性测试器
@@ -130,7 +130,7 @@ def demo_robustness_testing():
         save_path="output/attack_visualization.png"
     )
     
-    print("✅ 鲁棒性测试完成！")
+    print("鲁棒性测试完成！")
     return True
 
 
@@ -143,7 +143,7 @@ def demo_leakage_detection():
     # 检查是否有嵌入水印的图像
     original_image_path = "output/embedded_text.png"
     if not os.path.exists(original_image_path):
-        print("❌ 未找到嵌入水印的图像，请先运行基本功能演示")
+        print("未找到嵌入水印的图像，请先运行基本功能演示")
         return False
     
     # 初始化系统
@@ -279,29 +279,29 @@ def main():
     try:
         # 演示1: 基本功能
         if demo_basic_functionality():
-            print("\n✅ 基本功能演示完成")
+            print("\n基本功能演示完成")
         else:
-            print("\n❌ 基本功能演示失败")
+            print("\n基本功能演示失败")
             return
         
         # 演示2: 鲁棒性测试
         if demo_robustness_testing():
-            print("\n✅ 鲁棒性测试演示完成")
+            print("\n鲁棒性测试演示完成")
         else:
-            print("\n❌ 鲁棒性测试演示失败")
+            print("\n鲁棒性测试演示失败")
         
         # 演示3: 泄露检测
         if demo_leakage_detection():
-            print("\n✅ 泄露检测演示完成")
+            print("\n泄露检测演示完成")
         else:
-            print("\n❌ 泄露检测演示失败")
+            print("\n泄露检测演示失败")
         
         # 生成作业报告
         report = generate_homework_report()
-        print("\n✅ 作业报告生成完成")
+        print("\n作业报告生成完成")
         
         print("\n" + "=" * 60)
-        print("🎉 所有演示完成！")
+        print("所有演示完成！")
         print("=" * 60)
         print("输出文件位置：")
         print("- 嵌入水印的图像: output/embedded_text.png")
@@ -313,7 +313,7 @@ def main():
         print("=" * 60)
         
     except Exception as e:
-        print(f"\n❌ 演示过程中出现错误: {str(e)}")
+        print(f"\n演示过程中出现错误: {str(e)}")
         import traceback
         traceback.print_exc()
 
