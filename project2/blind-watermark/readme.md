@@ -7,6 +7,7 @@
 ├── homework_demo.py                 # 作业演示主程序
 ├── README.md                        # 说明文件
 └── output/                          # 输出目录
+└──algorithm.md                      # 算法原理
 ```
 
 ## 代码功能介绍
@@ -78,3 +79,4 @@ leakage_result = system.detect_leakage(
 |缩放攻击|![缩放攻击](output/attacked_geometric_translation.png)|'学号202200460086'|
 |对比度攻击|![对比度攻击](output/attacked_signal_processing_histogram_equalization.png)|'学号202200460086'|
 |对比度攻击|![亮度(对比度)攻击](output/attacked_signal_processing_noise.png)|'学号202200460086'|
+
